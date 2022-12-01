@@ -18,6 +18,10 @@ def first_puzzle(text: str) -> int:
     return max_calories
 
 
+def first_puzzle_one_liner(text: str) -> int:
+    return max([sum(int(x) for x in item.splitlines()) for item in text.strip().split('\n\n')])
+
+
 def second_puzzle(value: str) -> int:
     elves_calories_str = value.strip().split('\n\n')
 
@@ -34,6 +38,10 @@ def second_puzzle(value: str) -> int:
 
     sorted_list = sorted(elves_calories_values, reverse=True)
     return sum(sorted_list[:3])
+
+
+def second_puzzle_one_liner(text: str) -> int:
+    return sum(sorted([sum(int(x) for x in i.splitlines()) for i in text.strip().split('\n\n')], reverse=True)[:3])
 
 
 if __name__ == '__main__':
