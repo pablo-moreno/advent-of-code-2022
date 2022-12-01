@@ -6,11 +6,7 @@ def first_puzzle(text: str) -> int:
 
     max_calories = 0
     for item in elves_calories_str:
-        elf_calories = 0
-        calories_per_elf = item.split('\n')
-
-        for calories_value in calories_per_elf:
-            elf_calories += int(calories_value)
+        elf_calories = sum(int(x) for x in item.split('\n'))
 
         if elf_calories > max_calories:
             max_calories = elf_calories
@@ -22,18 +18,12 @@ def first_puzzle_one_liner(text: str) -> int:
     return max([sum(int(x) for x in item.splitlines()) for item in text.strip().split('\n\n')])
 
 
-def second_puzzle(value: str) -> int:
-    elves_calories_str = value.strip().split('\n\n')
+def second_puzzle(text: str) -> int:
+    elves_calories_str = text.strip().split('\n\n')
 
     elves_calories_values = []
-
     for item in elves_calories_str:
-        elf_calories = 0
-        calories_per_elf = item.split('\n')
-
-        for calories_value in calories_per_elf:
-            elf_calories += int(calories_value)
-
+        elf_calories = sum(int(x) for x in item.split('\n'))
         elves_calories_values.append(elf_calories)
 
     sorted_list = sorted(elves_calories_values, reverse=True)
