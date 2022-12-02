@@ -1,3 +1,4 @@
+from datetime import datetime
 from pathlib import Path
 
 
@@ -34,13 +35,25 @@ def second_puzzle_one_liner(text: str) -> int:
     return sum(sorted([sum(int(x) for x in i.splitlines()) for i in text.strip().split('\n\n')], reverse=True)[:3])
 
 
-if __name__ == '__main__':
-    path = Path(__file__).resolve().parent / 'input_01.txt'
-
+def main():
+    path = Path(__file__).resolve().parent / 'input.txt'
     with open(path) as f:
         text_input = f.read()
-        solution_first_puzzle = first_puzzle(text_input)
-        print(f'The elf with most calories is... {solution_first_puzzle} !!')
 
+        before_puzzle_one = datetime.now()
+        solution_first_puzzle = first_puzzle(text_input)
+        after_puzzle_one = datetime.now() - before_puzzle_one
+
+        print(f'The elf with most calories is... {solution_first_puzzle} !!')
+        print(f'{after_puzzle_one.microseconds}  µs')
+
+        before_puzzle_two = datetime.now()
         solution_second_puzzle = second_puzzle(text_input)
+        after_second_puzzle = datetime.now() - before_puzzle_two
+
         print(f'The sum of the three elves with most calories carried is... {solution_second_puzzle} !!')
+        print(f'{after_second_puzzle.microseconds}  µs')
+
+
+if __name__ == '__main__':
+    main()
