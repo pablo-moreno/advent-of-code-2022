@@ -10,8 +10,8 @@ C Z
 
 class TestDay02(unittest.TestCase):
 
-    def test_get_elf_with_most_calories_carried(self):
+    def test_rock_scissors_paper_strategy_one(self):
         assert first_puzzle(first_input) == 15
 
-    def test_get_sum_of_first_three_elves_with_most_calories_carried(self):
+    def test_rock_scissors_paper_strategy_two(self):
         assert second_puzzle(first_input) == 12
