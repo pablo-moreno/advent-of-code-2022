@@ -14,9 +14,12 @@ def first_puzzle(text: str) -> int:
         first_left, first_right = first
         second_left, second_right = second
 
-        first, second = list(range(first_left, first_right + 1)), list(range(second_left, second_right + 1))
-        if set(first).issubset(second) or set(second).issubset(first):
+        is_first_within_second = first_left >= second_left and first_right <= second_right
+        is_second_within_first = second_left >= first_left and second_right <= first_right
+
+        if is_first_within_second or is_second_within_first:
             count += 1
+
     return count
 
 

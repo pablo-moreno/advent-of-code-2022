@@ -13,5 +13,8 @@ text_input = """
 
 class TestDay04(unittest.TestCase):
 
-    def test_assignments_part_one(self):
+    def test_assignments_fully_ranged(self):
         assert first_puzzle(text_input) == 2
+
+    def test_assignments_overlapping(self):
+        assert second_puzzle(text_input) == 4
