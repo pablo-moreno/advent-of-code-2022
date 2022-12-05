@@ -35,3 +35,6 @@ class TestDay05(unittest.TestCase):
 
     def test_reordered_message(self):
         assert first_puzzle(text_input) == 'CMZ'
+
+    def test_cratemover_9001(self):
+        assert second_puzzle(text_input) == 'MCD'
